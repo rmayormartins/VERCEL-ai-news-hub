@@ -633,62 +633,50 @@ const AINewsApp = () => {
         {/* Analytics Dashboard */}
         <AnalyticsDashboard />
 
-{/* Newsletter Subscription - Versão Melhorada */}
-<div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 mb-8 text-white">
-  <div className="flex flex-col md:flex-row items-center justify-between">
-    <div className="mb-4 md:mb-0">
-      <h2 className="text-xl font-semibold mb-2">📧 Weekly Digest</h2>
-      <p className="text-blue-100">Get the top AI news delivered to your inbox every week</p>
-      {emailSubscribed && (
-        <p className="text-green-200 text-sm mt-1 flex items-center">
-          <div className="w-4 h-4 bg-green-400 rounded-full flex items-center justify-center mr-2">
-            ✓
+        {/* Newsletter Subscription */}
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-6 mb-8 text-white">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="mb-4 md:mb-0">
+              <h2 className="text-xl font-semibold mb-2">📧 Weekly Digest</h2>
+              <p className="text-blue-100">Get the top AI news delivered to your inbox every week</p>
+            </div>
+            
+            {!emailSubscribed ? (
+              <div className="flex space-x-2">
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="px-4 py-2 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+                />
+                <button
+                  onClick={handleEmailSubscription}
+                  className="bg-white text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  Subscribe
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                    ✓
+                  </div>
+                  <span>Successfully subscribed!</span>
+                </div>
+                <button
+                  onClick={handleEmailUnsubscribe}
+                  className="bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-colors flex items-center"
+                >
+                  <MailX className="w-4 h-4 mr-2" />
+                  Unsubscribe
+                </button>
+              </div>
+            )}
           </div>
-          You're subscribed!
-        </p>
-      )}
-    </div>
-    
-    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-      {!emailSubscribed && (
-        <input
-          type="email"
-          placeholder="your@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="px-4 py-2 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
-        />
-      )}
-      
-      {!emailSubscribed ? (
-        <button
-          onClick={handleEmailSubscription}
-          className="bg-white text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center justify-center"
-        >
-          <Send className="w-4 h-4 mr-2" />
-          Subscribe
-        </button>
-      ) : (
-        <div className="flex space-x-2">
-          <button
-            onClick={handleEmailSubscription}
-            className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-600 transition-colors flex items-center"
-          >
-            <Mail className="w-4 h-4 mr-2" />
-            Resubscribe
-          </button>
-          <button
-            onClick={handleEmailUnsubscribe}
-            className="bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-600 transition-colors flex items-center"
-          >
-            <MailX className="w-4 h-4 mr-2" />
-            Unsubscribe
-          </button>
         </div>
-      )}
-    </div>
-  </div>
-</div>
 
         {searchQuery && (
           <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
