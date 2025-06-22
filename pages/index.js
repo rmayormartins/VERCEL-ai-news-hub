@@ -863,14 +863,16 @@ const AINewsApp = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-white border-t mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-600">
-            <p>© 2025 AI News Hub. Powered by NewsAPI, GNews, Currents API and Reuters.</p>
-            <p className="text-sm mt-2">Stay updated with the latest developments in Artificial Intelligence.</p>
-          </div>
-        </div>
-      </footer>
+{/* Footer */}
+<footer className="bg-white border-t mt-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="text-center text-gray-600">
+      <p>© 2025 AI News Hub. Created by Ramon Mayor Martins.</p>
+      <p className="text-sm mt-2">Federal Institute of Santa Catarina</p>
+      <p className="text-xs mt-1 text-gray-500">Powered by NewsAPI, GNews, Currents API and Reuters.</p>
+    </div>
+  </div>
+</footer>
     </div>
   );
 };
